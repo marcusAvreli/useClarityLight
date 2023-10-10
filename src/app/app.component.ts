@@ -1,5 +1,5 @@
 import { Component,ElementRef,VERSION,OnInit,OnDestroy,ViewChild,AfterViewInit } from '@angular/core';
-import {DropDown} from 'ui-components-light';
+import {DropDown,ComboBox} from 'ui-components-light';
 import {Subscription} from 'rxjs/Subscription';
 
 import {Store} from '@ngrx/store';
@@ -89,12 +89,12 @@ constructor(private store: Store<fromRoot.State>) {
 
 
 
-private  combobox:DropDown;
+private  combobox:ComboBox;
 
 private  comboboxFields:DropDown; 
 
 	public ngOnInit() : void{
-			this.combobox = new DropDown(this.input.nativeElement);
+			this.combobox = new ComboBox(this.input.nativeElement);
 
 			this.subscription.add(
 
@@ -104,9 +104,9 @@ private  comboboxFields:DropDown;
 
 			this.combobox.itemsSource = this.reportEntities;
 
-			this.combobox.displayMemberPath = 'name';
+		//	this.combobox.displayMemberPath = 'name';
 
-			console.log("!!!!complete!!!!");
+		console.log("data:"+data);
 
 			},
 
