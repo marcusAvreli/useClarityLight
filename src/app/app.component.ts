@@ -104,9 +104,9 @@ private  comboboxFields:DropDown;
 
 			this.combobox.itemsSource = this.reportEntities;
 
-		//	this.combobox.displayMemberPath = 'name';
+			this.combobox.displayMemberPath = 'name';
 
-		console.log("data:"+data);
+		
 
 			},
 
@@ -119,7 +119,7 @@ private  comboboxFields:DropDown;
 				   
 
 				  
-		this.comboboxFields = new DropDown(this.input2.nativeElement);
+		//this.comboboxFields = new DropDown(this.input2.nativeElement);
 
 				   
 
