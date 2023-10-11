@@ -88,43 +88,27 @@ constructor(private store: Store<fromRoot.State>) {
 @ViewChild('divNote2') input2: ElementRef;
 
 
-
+//https://angular.io/guide/observables
 private  combobox:ComboBox;
 
 private  comboboxFields:DropDown; 
 
 	public ngOnInit() : void{
-			this.combobox = new ComboBox(this.input.nativeElement);
-
-			this.subscription.add(
-
+		this.combobox = new ComboBox(this.input.nativeElement);
+		this.combobox.selectedIndexChanged.addHandler(() => {
+			this.reportEntitySelected(this.combobox.selectedIndex);
+		});
+		this.subscription.add(
 			this.myReports.subscribe(data =>{
-
-			this.reportEntities = data;                                                           
-
+			this.reportEntities = data;
 			this.combobox.itemsSource = this.reportEntities;
-
 			this.combobox.displayMemberPath = 'name';
-
-		
-
-			},
-
-
-
-			() => {console.log("complete");})
-
-		);    
-
-				   
-
-				  
-		//this.comboboxFields = new DropDown(this.input2.nativeElement);
-
-				   
-
+		}));		
 	}
 
+private reportEntitySelected(index:number){
+	var selectedObject = this.combobox.selectedItem;	
+}
                 public ngOnDestroy() : void{
 
                                 this.subscription.unsubscribe();
